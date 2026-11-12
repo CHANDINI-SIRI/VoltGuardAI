@@ -178,8 +178,7 @@ def parse_ocr_text(text: str) -> Dict[str, Any]:
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
+    return templates.TemplateResponse(request=request, name="index.html")
 
 @app.post("/api/translate-batch")
 async def translate_batch(payload: Dict[str, Any]):
